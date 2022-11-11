@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Registration
+{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+{% endblock %}
+
+{% block body %}
+  <body>
+    <div class="container main_content">
+      <main class="wrapper">
+        <div class="register_wrapper">
+          <h1 class="text-uppercase pb-4 text-center">
+            Register account<p id="line"></p>
+          </h1>
+
+          {{ form_start(registrationForm) }}
+
+          <div class="username_form pb-3">
+            {{ form_row(registrationForm.username) }}
+          </div>
+
+          <div class="email_form pb-3">
+            {{ form_row(registrationForm.email) }}
+          </div>
+
+          <div class="pwd_form">
+            {{
+              form_row(
+                registrationForm.plainPassword,
+                {
+                  label: 'Password'
+                }
+              )
+            }}
+          </div>
+
+          <div class="agreeTerms_form pt-3">
+            {{ form_row(registrationForm.agreeTerms) }}
+          </div>
+
+          <div>
+            <button type="submit"
+              class="btn btn_submit text-uppercase text-center">
+              Sign Up
+            </button>
+          </div>
+
+          <div class="text-center py-3">
+            <span style="font-size: 0.9rem;" class="fw-bold">
+              Or Sign Up Using
+            </span>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center gap-4">
+            <a href="#" class="login100-social-item bg1">
+              <i class="fa fa-facebook fs-6"></i>
+            </a>
+
+            <a href="#" class="login100-social-item bg2">
+              <i class="fa fa-twitter fs-6"></i>
+            </a>
+
+            <a href="#" class="login100-social-item bg3">
+              <i class="fa fa-google fs-6"></i>
+            </a>
+          </div>
+
+          {{ form_end(registrationForm) }}
+        </div>
+      </main>
+    </div>
+  </body>
+{% endblock %}

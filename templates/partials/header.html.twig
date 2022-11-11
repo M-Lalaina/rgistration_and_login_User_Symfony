@@ -1,0 +1,76 @@
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="/css/header.css" />
+{% endblock %}
+
+{% block body %}
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarColor02"
+          aria-controls="navbarColor02"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ path('app_home') }}">
+                Home
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Project</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact_Me</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            {% if app.user %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  My account
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{{ path('app_profile') }}">
+                    Show profile
+                  </a>
+                  <a class="dropdown-item" href="#">Edit</a>
+                  <a class="dropdown-item" href="#">Delete My account</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{ path('app_logout') }}">
+                    Log Out
+                  </a>
+                </div>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <button class="btn">
+                  <a class="nav-link" href="{{ path('app_register') }}">
+                    Sign up
+                  </a>
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="btn">
+                  <a class="nav-link" href="{{ path('app_login') }}">Log In</a>
+                </button>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block body %}
+  {% block header %}
+    {% include 'partials/header.html.twig' %}
+  {% endblock %}
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="example-wrapper">
+          {% if app.user %}
+            <div class="mb-3">
+              You are logged in as {{ app.user.userIdentifier }}
+            </div>
+          {% endif %}
+          <h1>
+            Welcome TO MY PAGE !
+          </h1>This is just a simple test of trainning course i've made in Class<ul>
+            <li>
+              Your Can visit my portfolio here <code><a href="https://lalaina-portfolio.netlify.app/"
+                  target="_blank">
+                  /Lalaina_portfolio_netily.app
+                </a></code>
+            </li>
+            <li>
+              And My channel here <code><a href="https://www.youtube.com/channel/UCO93mMZVC2_mJFbs-7PytKw"
+                  target="_blank">
+                  Youtube/ebosy/Project
+                </a></code>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </body>
+{% endblock %}

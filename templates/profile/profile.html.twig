@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Hello ProfileController!
+{% endblock %}
+
+{% block body %}
+  <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font:
+    18px/1.5 sans-serif; } .example-wrapper code { background: #F5F5F5; padding:
+    2px 6px; }
+  </style>
+
+  {% block header %}
+    {% include 'partials/header.html.twig' %}
+  {% endblock %}
+
+  <div class="example-wrapper">
+    <body>
+      <main>
+        <div class="container py-5">
+          <div class="example-wrapper">
+            <h1>
+              YOUR PROFILE
+            </h1>
+          </div>
+
+          <div class="content">
+            <div>
+              <img src="https://via.placeholder.com/150x150"
+                class="rounded-circle"
+                alt="" />
+            </div>
+
+            <p>
+              {{ user.username }}
+            </p>
+
+            <p>
+              <a href="" class="btn btn-primary">Change Photo</a>
+            </p>
+          </div>
+
+          <div>
+            <div style="background:#0c404e;">
+              <div class="container py-5">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th style="color:#accffe">
+                        Id
+                      </th>
+                      <td style="color:#accffe">
+                        {{ user.id }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th style="color:#accffe">
+                        username
+                      </th>
+                      <td style="color:#accffe">
+                        {{ user.username }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th style="color:#accffe">
+                        email
+                      </th>
+                      <td style="color:#accffe">
+                        {{ user.email }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </body>
+  </div>
+{% endblock %}

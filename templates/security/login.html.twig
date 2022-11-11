@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Log in
+{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+{% endblock %}
+
+{% block body %}
+  <body>
+    <div class="container"
+      style="
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		">
+      <main class="wrapper" style="width: 500px">
+        <div class="wrap-login100 p-5">
+          <form method="post">
+            <h1 class="h3 font-weight-normal text-center pb-4">
+              LogIn to Your Account<p id="line"></p>
+            </h1>
+
+            {# EMAIL FORM #}
+
+            <div class="mb-5">
+              <label for="inputEmail">Email</label>
+
+              <input type="email"
+                value="{{ last_username }}"
+                name="email"
+                id="inputEmail"
+                class="form-control"
+                autocomplete="email"
+                required
+                autofocus />
+            </div>
+
+            {# PASSWORD FORM #}
+            <div>
+              <label for="inputPassword">Password</label>
+
+              <input type="password"
+                name="password"
+                id="inputPassword"
+                class="form-control"
+                autocomplete="current-password"
+                required />
+
+              <div class="text-end pt-3">
+                <a href="#" class="text-decoration-none">Forgot password?</a>
+              </div>
+            </div>
+
+            {% if error %}
+              <div class="alert alert-danger mt-3 py-2 px-3">
+                <p class="m-0" style="font-size: 0.8rem;">
+                  Error! please, check your pwd or your email.
+                </p>
+                {# {{ error.messageKey|trans(error.messageData, 'security') }} #}
+              </div>
+            {% endif %}
+
+            <input type="hidden"
+              name="_csrf_token"
+              value="{{ csrf_token('authenticate') }}" />
+
+            {#
+              Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+              See https://symfony.com/doc/current/security/remember_me.html
+      
+              <div class="checkbox mb-3">
+                  <label>
+                      <input type="checkbox" name="_remember_me"> Remember me
+                  </label>
+              </div>
+          #}
+
+            <div>
+              <button type="submit"
+                class="btn btn_submit text-uppercase text-center text-white">
+                Sign in
+              </button>
+            </div>
+
+            <div class="pt-5 pb-3">
+              <span style="font-size: 0.8rem;">
+                If you don't have any Account Please Sign Up here
+                <a href="{{ path('app_register') }}">
+                  <i class="fa-solid fa-angles-right" style="color: #6db5fd;">
+
+                  </i>
+                </a>
+              </span>
+            </div>
+
+            <div class="text-center pb-3">
+              <span style="font-size: 0.9rem;" class="fw-bold">
+                Or Sign Up Using
+              </span>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center gap-4">
+              <a href="#" class="login100-social-item bg1">
+                <i class="fa fa-facebook fs-6"></i>
+              </a>
+
+              <a href="#" class="login100-social-item bg2">
+                <i class="fa fa-twitter fs-6"></i>
+              </a>
+
+              <a href="#" class="login100-social-item bg3">
+                <i class="fa fa-google fs-6"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+{% endblock %}
